@@ -1,4 +1,9 @@
-# Hamza Amjad | Full-Stack Developer Portfolio
+<h1 align="center">Hamza Amjad | Full-Stack Developer Portfolio</h1>
+
+<p align="center">
+  A responsive full-stack portfolio website built with modern web technologies,
+  focused on clean architecture, usability, and scalable development practices.
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JavaScript-orange?style=for-the-badge" />
