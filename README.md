@@ -18,7 +18,7 @@
 
 ---
 
-## 🌟 Overview
+## Overview
 
 **Hamza Amjad Portfolio Website** is a full-stack web application designed with a focus on:
 
@@ -32,9 +32,9 @@ The website provides a professional platform to showcase technical skills, compl
 
 ---
 
-# ✨ Key Features
+# Key Features
 
-## 🎨 Responsive Frontend
+## Responsive Frontend
 
 * Fully responsive design for desktop, tablet, and mobile devices
 * Mobile-first development approach
@@ -46,7 +46,7 @@ The website provides a professional platform to showcase technical skills, compl
 
 ---
 
-## ⚡ Backend Capabilities
+## Backend Capabilities
 
 * REST API architecture
 * Backend service integration
@@ -56,21 +56,21 @@ The website provides a professional platform to showcase technical skills, compl
 
 ---
 
-## 📱 Device Compatibility
+## Device Compatibility
 
 The website is optimized for:
 
 | Device     | Support            |
 | ---------- | ------------------ |
-| 💻 Desktop | ✅ Fully Responsive |
-| 📱 Mobile  | ✅ Optimized Layout |
-| 📲 Tablet  | ✅ Adaptive Design  |
+| Desktop | Fully Responsive |
+| Mobile  | Optimized Layout |
+| Tablet  | Adaptive Design  |
 
 Bootstrap components and responsive techniques ensure a smooth experience across different screen sizes.
 
 ---
 
-# 🛠️ Technology Stack
+# Technology Stack
 
 ## Frontend Technologies
 
@@ -108,7 +108,7 @@ Bootstrap components and responsive techniques ensure a smooth experience across
 
 ---
 
-# 📂 Project Architecture
+# Project Architecture
 
 ```text
 Hamza-Amjad-Portfolio
@@ -137,7 +137,7 @@ Hamza-Amjad-Portfolio
 
 ---
 
-# 🚀 Getting Started
+# Getting Started
 
 ## Clone Repository
 
@@ -199,7 +199,7 @@ python manage.py runserver
 
 ---
 
-# 🎯 Project Goals
+# Project Goals
 
 This project demonstrates practical experience in:
 
@@ -225,7 +225,7 @@ Planned improvements:
 
 ---
 
-# 👨‍💻 Developer
+# Developer
 
 ## Hamza Amjad
 
@@ -235,7 +235,7 @@ GitHub:
 
 ---
 
-# 📄 License
+# License
 
 Copyright © Hamza Amjad
 
