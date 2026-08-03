@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Project - Hamza Amjad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" media="(max-width: 991.98px)">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/dashboard.css">
+    <link rel="stylesheet" href="./src/styles/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+            if (document.body) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.body.classList.add('dark-mode');
+                }, { once: true });
+            }
+        }
+    </script>
+</head>
+<body class="dashboard-body">
+    
+    <section class="usa-banner" aria-label="Official website of Hamza Amjad">
+        <div class="usa-banner-header">
+            <div class="usa-banner-inner">
+                <span class="usa-banner-text">
+                    AN OFFICIAL PORTFOLIO WEBSITE OF HAMZA AMJAD // SYSTEMS_SECURE
+                </span>
+                <button class="usa-banner-button" id="usaBannerButton" aria-expanded="false" aria-controls="usaBannerContent">
+                    <span class="usa-banner-button-text">Here's how you know</span>
+                    <span class="usa-banner-button-icon">▾</span>
+                </button>
+            </div>
+        </div>
+        <div class="usa-banner-content" id="usaBannerContent" hidden>
+            <div class="usa-banner-grid">
+                <div class="usa-banner-item">
+                    <span class="usa-banner-icon">🔒</span>
+                    <div class="usa-banner-item-text">
+                        <strong>The connection is secure</strong>
+                        <p>This site uses a secure connection (HTTPS) to ensure your data is encrypted during transmission.</p>
+                    </div>
+                </div>
+                <div class="usa-banner-item">
+                    <span class="usa-banner-icon">✓</span>
+                    <div class="usa-banner-item-text">
+                        <strong>Verified Portfolio</strong>
+                        <p>Official portfolio of Hamza Amjad, Software Engineer & AI Enthusiast.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; display: flex; flex-direction: column;">
+                    <span class="logo-name">Hamza Amjad</span>
+                    <span class="logo-agency">// Software Engineer</span>
+                </a>
+            </div>
+            <div class="header-actions">
+                <div class="system-time" id="utcTime">UTC: --:--:--</div>
+                <div class="security-badge">
+                    <span class="security-dot pulse"></span>
+                    CLEARANCE: LEVEL_04
+                </div>
+                <button class="mobile-menu-toggle" id="dashboardMenuToggle" aria-label="Toggle dashboard menu" aria-expanded="false">
+                    <div class="bar-container">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode"></button>
+                <a href="connect.html" class="hire-btn">Connect</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <div class="avatar-container">
+                    <img src="./public/images/profile.png" alt="Profile" id="sidebarAvatar" width="140" height="140" loading="lazy" decoding="async">
+                    <div class="avatar-overlay"></div>
+                </div>
+                <h3 id="sidebarName">Hamza Amjad</h3>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item" data-section="overview">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Overview</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-projects.html" class="nav-item" data-section="projects">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">My Projects</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-new-project.html" class="nav-item active" data-section="new-project">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">New Project</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-profile.html" class="nav-item" data-section="profile">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Profile Info</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-settings.html" class="nav-item" data-section="settings">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Settings</span>
+                    <span class="nav-indicator"></span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="connection-info">
+                    <div class="info-item"></div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <span class="logout-icon">■</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="new-project-section" class="section active">
+                <div class="section-title">
+                    <h1>Add Project</h1>
+                    <p class="section-subtitle">Provide comprehensive requirements for system analysis.</p>
+                </div>
+
+                <div class="form-container">
+                    <form id="projectForm" class="project-form">
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="projectName">PROJECT NAME <span class="required">*</span></label>
+                                <input type="text" id="projectName" required placeholder="e.g., Enterprise AI Integration">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="projectDescription">TECHNICAL SPECIFICATIONS <span class="required">*</span></label>
+                                <textarea id="projectDescription" required placeholder="Detail the scope, tech stack, and core functionalities..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectTimeline">ESTIMATED DEADLINE <span class="required">*</span></label>
+                                <input type="date" id="projectTimeline" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectBudget">ALLOCATED BUDGET ($) <span class="required">*</span></label>
+                                <input type="number" id="projectBudget" required placeholder="0.00" step="0.01" min="0">
+                            </div>
+                        </div>
+
+                        <div class="file-upload-section">
+                            <label>DOCUMENTATION / ASSETS</label>
+                            <div class="file-drop-zone" id="dropZone">
+                                <input type="file" id="projectFiles" multiple accept=".pdf,.docx,.zip,.jpg,.png,.doc,.xlsx" hidden>
+                                <div class="drop-zone-content">
+                                    <span class="upload-icon">📄 🖼️</span>
+                                    <p>Drag & drop files or <span>browse</span></p>
+                                    <small>Documents & Images (PDF, DOCX, ZIP, JPG, PNG) • Max 50MB</small>
+                                </div>
+                            </div>
+                            <div id="fileList" class="file-preview-grid"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-primary" onclick="addNewProject()">ADD_PROJECT</button>
+                            <button type="button" class="btn-secondary" onclick="switchSection('projects')">EXIT</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="messagePopup" class="message-popup">
+        <div class="popup-content">
+            <div class="popup-icon" id="popupIcon">✓</div>
+            <div class="popup-text">
+                <h4 id="popupTitle"></h4>
+                <p id="popupMessage"></p>
+            </div>
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+        </div>
+    </div>
+
+    <script src="./src/config.js"></script>
+    <script src="./src/security.js"></script>
+    <script src="./src/components/main.js"></script>
+    <script src="./src/components/dashboard.js"></script>
+    <script src="./src/components/navbar.js"></script>
+
+    <div style="height: 40px;"></div>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Hamza Amjad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" media="(max-width: 991.98px)">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/dashboard.css">
+    <link rel="stylesheet" href="./src/styles/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+            if (document.body) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.body.classList.add('dark-mode');
+                }, { once: true });
+            }
+        }
+    </script>
+</head>
+<body class="dashboard-body">
+    
+    <section class="usa-banner" aria-label="Official website of Hamza Amjad">
+        <div class="usa-banner-header">
+            <div class="usa-banner-inner">
+                <span class="usa-banner-text">
+                    AN OFFICIAL PORTFOLIO WEBSITE OF HAMZA AMJAD // SYSTEMS_SECURE
+                </span>
+                <button class="usa-banner-button" id="usaBannerButton" aria-expanded="false" aria-controls="usaBannerContent">
+                    <span class="usa-banner-button-text">Here's how you know</span>
+                    <span class="usa-banner-button-icon">▾</span>
+                </button>
+            </div>
+        </div>
+        <div class="usa-banner-content" id="usaBannerContent" hidden>
+            <div class="usa-banner-grid">
+                <div class="usa-banner-item">
+                    <span class="usa-banner-icon">🔒</span>
+                    <div class="usa-banner-item-text">
+                        <strong>The connection is secure</strong>
+                        <p>This site uses a secure connection (HTTPS) to ensure your data is encrypted during transmission.</p>
+                    </div>
+                </div>
+                <div class="usa-banner-item">
+                    <span class="usa-banner-icon">✓</span>
+                    <div class="usa-banner-item-text">
+                        <strong>Verified Portfolio</strong>
+                        <p>Official portfolio of Hamza Amjad, Software Engineer & AI Enthusiast.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; display: flex; flex-direction: column;">
+                    <span class="logo-name">Hamza Amjad</span>
+                    <span class="logo-agency">// Software Engineer</span>
+                </a>
+            </div>
+            <div class="header-actions">
+                <div class="system-time" id="utcTime">UTC: --:--:--</div>
+                <div class="security-badge">
+                    <span class="security-dot pulse"></span>
+                    CLEARANCE: LEVEL_04
+                </div>
+                <button class="mobile-menu-toggle" id="dashboardMenuToggle" aria-label="Toggle dashboard menu" aria-expanded="false">
+                    <div class="bar-container">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode"></button>
+                <a href="connect.html" class="hire-btn">Connect</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <div class="avatar-container">
+                    <img src="./public/images/profile.png" alt="Profile" id="sidebarAvatar" width="140" height="140" loading="lazy" decoding="async">
+                    <div class="avatar-overlay"></div>
+                </div>
+                <h3 id="sidebarName">Hamza Amjad</h3>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item" data-section="overview">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Overview</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-projects.html" class="nav-item active" data-section="projects">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">My Projects</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-new-project.html" class="nav-item" data-section="new-project">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">New Project</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-profile.html" class="nav-item" data-section="profile">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Profile Info</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="dashboard-settings.html" class="nav-item" data-section="settings">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Settings</span>
+                    <span class="nav-indicator"></span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="connection-info">
+                    <div class="info-item"></div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <span class="logout-icon">■</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="projects-section" class="section active">
+                <div class="section-header-repo">
+                    <div class="section-title-repo">
+                        <h1>My Projects</h1>
+                        <p class="section-subtitle-repo">Monitor project phases, milestones, and deliverables in real-time</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                        <button class="btn-primary" onclick="switchSection('new-project')">
+                            <span>+</span> Add New Project
+                        </button>
+                        <button class="btn-secondary" onclick="fetchProjects()" title="Reload projects">🔄 Reload</button>
+                    </div>
+                </div>
+                <div id="projectsList" class="projects-grid">
+                    <p class="empty-state">No active projects in the database. add a new project to begin.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content dossier-card">
+            <div class="modal-header">
+                <div class="header-main">
+                    <span class="project-id-badge" id="modalProjectId">PRJ-0001</span>
+                    <h2 id="modalProjectName">Project Name</h2>
+                </div>
+                <button class="close-btn" onclick="closeProjectModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="project-tabs">
+                    <button class="modal-tab active" data-tab="overview">OVERVIEW</button>
+                    <button class="modal-tab" data-tab="phases">DEVELOPMENT_PHASES</button>
+                    <button class="modal-tab" data-tab="activity">ACTIVITY LOG</button>
+                    <button class="modal-tab" data-tab="files">FILES</button>
+                </div>
+
+                <div class="modal-tab-content active" id="modal-tab-overview">
+                    <div class="project-detail-grid">
+                        <div class="detail-item">
+                            <span class="label">CURRENT STATUS:</span>
+                            <span id="modalStatus" class="status-badge">IN PROGRESS</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">CURRENT PHASE:</span>
+                            <span id="modalCurrentPhase" class="phase-badge">Development</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">COMPLETION:</span>
+                            <div class="progress-container">
+                                <div class="progress-bar-modal">
+                                    <div id="modalProgress" class="progress-fill"></div>
+                                </div>
+                                <span id="modalProgressText">75%</span>
+                            </div>
+                        </div>
+                        <div class="detail-item full-width">
+                            <span class="label">DESCRIPTION:</span>
+                            <p id="modalDescription" class="description-text"></p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">DEADLINE:</span>
+                            <span id="modalTimeline" class="value">2026-12-31</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">BUDGET:</span>
+                            <span id="modalBudget" class="value">$10,000.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-tab-content" id="modal-tab-phases">
+                    <div class="phases-timeline" id="modalPhasesList"></div>
+                </div>
+
+                <div class="modal-tab-content" id="modal-tab-activity">
+                    <div class="activity-log" id="modalActivityLog"></div>
+                </div>
+
+                <div class="modal-tab-content" id="modal-tab-files">
+                    <div class="files-section">
+                        <div class="upload-area">
+                            <div class="upload-header">
+                                <h3>PROJECT FILES MANAGEMENT</h3>
+                                <p class="upload-subtitle">Upload and manage project documents, assets, and resources</p>
+                            </div>
+
+                            <div class="upload-option local-upload">
+                                <div class="upload-label">UPLOAD FROM YOUR PC</div>
+                                <div class="drop-zone" id="modalDropZone">
+                                    <input type="file" id="modalProjectFiles" multiple accept=".pdf,.docx,.zip,.jpg,.png,.doc,.xlsx,.pptx,.csv,.json,.xml" hidden>
+                                    <div class="drop-zone-content">
+                                        <span class="upload-icon">FILE ICONS</span>
+                                        <p>Drag & drop files or click to browse</p>
+                                        <small>Max file size: 50MB • Supported: PDF, DOCX, ZIP, JPG, PNG, PPTX, CSV, JSON, XML</small>
+                                    </div>
+                                </div>
+                                <div id="modalFileList" class="file-preview-grid"></div>
+                            </div>
+
+                            <div class="upload-option cloud-upload">
+                                <div class="upload-label">ADD FROM CLOUD SOURCE</div>
+                                <div class="cloud-input-group">
+                                    <input type="url" id="cloudFileUrl" placeholder="Paste cloud file URL (Google Drive, Dropbox, etc.)" class="cloud-url-input">
+                                    <button type="button" class="btn-upload btn-cloud" onclick="addCloudFile()">
+                                        ADD FROM CLOUD
+                                    </button>
+                                </div>
+                                <div id="cloudFileList" class="file-preview-grid"></div>
+                            </div>
+
+                            <div class="current-files">
+                                <div class="upload-label">CURRENT PROJECT FILES</div>
+                                <div id="modalFilesList" class="files-grid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeProjectModal()">CLOSE VIEW</button>
+                <button class="btn-primary" onclick="openUpdateSpecsModal()">UPDATE SPECS</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="updateSpecsModal" class="modal">
+        <div class="modal-content specs-modal">
+            <div class="modal-header">
+                <h2>UPDATE PROJECT SPECIFICATIONS</h2>
+                <button class="close-btn" onclick="closeUpdateSpecsModal()">&times;</button>
+            </div>
+            <div class="modal-body specs-body">
+                <div class="specs-form-container">
+                    <form id="specsUpdateForm" class="specs-form">
+                        <div class="form-section-group">
+                            <div class="section-heading">
+                                <h3>Basic Information</h3>
+                            </div>
+
+                            <div class="form-section">
+                                <label for="specsProjectName">PROJECT NAME</label>
+                                <input type="text" id="specsProjectName" placeholder="Enter updated project name" required>
+                            </div>
+
+                            <div class="form-section">
+                                <label for="specsDescription">PROJECT DESCRIPTION</label>
+                                <textarea id="specsDescription" rows="3" placeholder="Detailed project description..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section-group">
+                            <div class="section-heading">
+                                <h3>Budget & Timeline</h3>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-section">
+                                    <label for="specsBudget">PROJECT BUDGET ($)</label>
+                                    <input type="number" id="specsBudget" placeholder="0.00" min="0" step="0.01">
+                                </div>
+                                <div class="form-section">
+                                    <label for="specsDeadline">PROJECT DEADLINE</label>
+                                    <input type="date" id="specsDeadline">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section-group">
+                            <div class="section-heading">
+                                <h3>Project Status</h3>
+                            </div>
+
+                            <div class="form-row-3">
+                                <div class="form-section">
+                                    <label for="specsStatus">STATUS</label>
+                                    <input type="text" id="specsStatus" readonly class="readonly-input">
+                                </div>
+                                <div class="form-section">
+                                    <label for="specsCurrentPhase">CURRENT PHASE</label>
+                                    <input type="text" id="specsCurrentPhase" readonly class="readonly-input">
+                                </div>
+                                <div class="form-section">
+                                    <label for="specsProgress">PROG %</label>
+                                    <input type="text" id="specsProgress" readonly class="readonly-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section-group">
+                            <div class="section-heading">
+                                <h3>Technical Details</h3>
+                            </div>
+
+                            <div class="form-section">
+                                <label for="specsRequirements">TECHNICAL REQUIREMENTS</label>
+                                <textarea id="specsRequirements" rows="3" placeholder="List all technical requirements, tools, and frameworks..."></textarea>
+                            </div>
+
+                            <div class="form-section">
+                                <label for="specsNotes">NOTES & UPDATES</label>
+                                <textarea id="specsNotes" rows="3" placeholder="Additional notes or updates..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-primary" onclick="saveSpecifications()">SAVE SPECIFICATIONS</button>
+                            <button type="button" class="btn-secondary" onclick="resetSpecsForm()">RESET</button>
+                            <button type="button" class="btn-tertiary" onclick="closeUpdateSpecsModal()">CANCEL</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="messagePopup" class="message-popup">
+        <div class="popup-content">
+            <div class="popup-icon" id="popupIcon">✓</div>
+            <div class="popup-text">
+                <h4 id="popupTitle"></h4>
+                <p id="popupMessage"></p>
+            </div>
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+        </div>
+    </div>
+
+    <script src="./src/config.js"></script>
+    <script src="./src/security.js"></script>
+    <script src="./src/components/main.js"></script>
+    <script src="./src/components/dashboard.js"></script>
+    <script src="./src/components/navbar.js"></script>
+
+    <div style="height: 40px;"></div>
+</body>
+</html>
