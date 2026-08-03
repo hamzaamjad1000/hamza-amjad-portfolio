@@ -212,17 +212,6 @@ This project demonstrates practical experience in:
 * Git-based software workflow
 
 ---
-
-# Future Improvements
-
-Planned improvements:
-
-* Advanced UI animations
-* Cloud deployment
-* Performance optimization
-* Additional project showcases
-* Enhanced user experience features
-
 ---
 
 # Developer
