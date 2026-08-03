@@ -1,101 +1,68 @@
-# ==============================
-# Environment Variables (PRIVATE)
-# ==============================
 .env
 .env.*
-!.env.example
 
-# ==============================
-# Node.js Dependencies
-# ==============================
 node_modules/
 frontend/node_modules/
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# ==============================
-# Next.js / Frontend Build Files
-# ==============================
 .next/
 out/
 dist/
 build/
 
-# ==============================
-# Python / Django
-# ==============================
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual Environments
-venv/
-env/
-.venv/
-
-# Django Database Files (PRIVATE)
-db.sqlite3
+*.sqlite
 *.sqlite3
 *.db
 
-# Django Media (User Uploads)
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+env/
+.venv/
+ENV/
+
 media/
+uploads/
 
-# ==============================
-# Python Cache & Tools
-# ==============================
-.pytest_cache/
-.mypy_cache/
-.coverage
+*.log
+logs/
 
-# ==============================
-# IDE / Editor Files
-# ==============================
 .vscode/
 .idea/
 
-# ==============================
-# Operating System Files
-# ==============================
+*.cpuprofile
+*.tsbuildinfo
+
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# ==============================
-# Logs
-# ==============================
-*.log
-logs/
-
-# ==============================
-# Profiling / Debug Files
-# ==============================
-*.cpuprofile
-
-# ==============================
-# Temporary Files
-# ==============================
 *.tmp
 *.temp
 *.bak
+*.swp
 
-# ==============================
-# Local Configuration
-# ==============================
-*.local
-
-# ==============================
-# Credentials / Secrets
-# ==============================
-*.pem
-*.key
 credentials.json
 secrets.json
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
 
-# ==============================
-# Uploads / User Data
-# ==============================
-uploads/
+token*
+*.token
+
+config.local.*
+*.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+coverage/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
