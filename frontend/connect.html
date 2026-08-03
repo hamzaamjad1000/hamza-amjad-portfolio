@@ -11,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Flag for Google SDK loading -->
+    
     <script>
         window.googleSDKReady = false;
     </script>
     <script>
-        // Force light theme on first visit (runs before CSS renders)
+        
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             document.documentElement.classList.add('dark-mode');
@@ -31,7 +31,7 @@
     </script>
 </head>
 <body class="auth-body">
-    <!-- OFFICIAL BANNER (USA.GOV INSPIRED) -->
+    
     <section class="usa-banner" aria-label="Official website of Hamza Amjad">
         <div class="usa-banner-header">
             <div class="usa-banner-inner">
@@ -63,7 +63,7 @@
             </div>
         </div>
     </section>
-    <!-- HEADER -->
+    
     <header class="header">
         <div class="header-container">
             <div class="logo">
@@ -96,7 +96,7 @@
             </div>
         </div>
     </header>
-    <!-- MAIN CONTENT -->
+    
     <main class="connect-main">
         <section class="auth-hero">
             <div class="section-container">
@@ -131,7 +131,7 @@
                     </div>
 
                     <div class="auth-form-pane">
-                        <!-- SIGN IN CARD -->
+                       
                         <div class="auth-card dossier-card" id="signin-card">
                             <div class="form-header">
                                 <h2>SIGN IN</h2>
@@ -188,9 +188,9 @@
                             </div>
                         </div>
 
-                        <!-- SIGN UP CARD -->
+                        
                         <div class="auth-card dossier-card hidden" id="signup-card">
-                            <!-- STEP 1: EMAIL ENTRY -->
+                            
                             <div class="signup-form-step" id="signup-step-1">
                                 <div class="form-header">
                                     <h2>CREATE ACCOUNT</h2>
@@ -218,7 +218,7 @@
                                 </form>
                             </div>
 
-                            <!-- STEP 2: EMAIL CODE VERIFICATION -->
+                            
                             <div class="signup-form-step hidden" id="signup-step-2">
                                 <div class="form-header">
                                     <h2>VERIFY EMAIL</h2>
@@ -244,7 +244,7 @@
                                 </form>
                             </div>
 
-                            <!-- STEP 3: PASSWORD & ACCOUNT SETUP -->
+                            
                             <div class="signup-form-step hidden" id="signup-step-3">
                                 <div class="form-header">
                                     <h2>COMPLETE SIGNUP</h2>
@@ -319,7 +319,7 @@
                                 </form>
                             </div>
 
-                            <!-- SUCCESS MESSAGE -->
+                            
                             <div class="signup-form-step hidden" id="signup-step-success">
                                 <div class="success-message">
                                     <div class="success-icon">✓</div>
@@ -337,7 +337,7 @@
                             </div>
                         </div>
 
-                        <!-- MEMBER LOGIN CARD -->
+                       
                         <div class="auth-card dossier-card hidden" id="member-login-card">
                             <div class="form-header">
                                 <h2>TEAM MEMBER LOGIN</h2>
@@ -385,10 +385,10 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    
     <footer class="footer">
         <div class="footer-container">
-            <!-- Left Section: Brand & Official Status -->
+            
             <div class="footer-section brand-info">
                 <div class="footer-logo">
                     <span class="logo-name">Hamza Amjad</span>
@@ -409,7 +409,7 @@
                 </div>
             </div>
 
-            <!-- Middle Section: Reference Links -->
+            
             <div class="footer-section">
                 <h4 class="footer-title">Navigation // Ref</h4>
                 <ul class="footer-nav-list">
@@ -422,7 +422,6 @@
                 </ul>
             </div>
 
-            <!-- Middle Section: Resource Links -->
             <div class="footer-section">
                 <h4 class="footer-title">Intelligence // Docs</h4>
                 <ul class="footer-nav-list">
@@ -431,7 +430,6 @@
                 </ul>
             </div>
 
-            <!-- Right Section: Social Connect -->
             <div class="footer-section social-section">
                 <h4 class="footer-title">External Links</h4>
                 <div class="social-grid">
@@ -458,7 +456,6 @@
         </div>
     </footer>
 
-    <!-- Message Popup -->
     <div id="messagePopup" class="message-popup">
         <div class="popup-content">
             <div class="popup-icon" id="popupIcon">✓</div>
@@ -470,7 +467,6 @@
         </div>
     </div>
 
-    <!-- Terms and Conditions Modal -->
     <div id="termsModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -548,7 +544,7 @@
     <script src="./src/components/main.js"></script>
     <script src="./src/components/connect.js"></script>
     <script src="./src/components/navbar.js"></script>
-    <!-- Google Sign-In SDK (loaded after all components) -->
+    
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </body>
 </html>

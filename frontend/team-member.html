@@ -310,7 +310,7 @@
         }
     </style>
     <script>
-        // Force light theme on first visit (runs before CSS renders)
+        
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             document.documentElement.className = 'dark-mode';
@@ -319,7 +319,7 @@
     </script>
 </head>
 <body class="dashboard-body">
-    <!-- OFFICIAL BANNER (USA.GOV INSPIRED) -->
+    
     <section class="usa-banner" aria-label="Official website of Hamza Amjad">
         <div class="usa-banner-header">
             <div class="usa-banner-inner">
@@ -351,7 +351,7 @@
             </div>
         </div>
     </section>
-    <!-- HEADER -->
+    
     <header class="header">
         <div class="header-container">
             <div class="logo">
@@ -380,7 +380,7 @@
     </header>
 
     <div class="dashboard-container">
-        <!-- Sidebar Navigation -->
+       
         <aside class="sidebar">
             <div class="sidebar-user">
                 <div class="avatar-container">
@@ -421,10 +421,10 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+        
         <main class="main-content">
             
-            <!-- Overview Section -->
+
             <section id="overview-section" class="section active">
                 <div class="section-title">Team Member Dashboard</div>
                 
@@ -445,7 +445,7 @@
                 </div>
             </section>
 
-            <!-- My Clients Section -->
+            
             <section id="clients-section" class="section">
                 <div class="section-title">My Assigned Clients</div>
                 <div class="clients-list" id="clientsList">
@@ -455,7 +455,7 @@
                 </div>
             </section>
 
-            <!-- Request Access Section -->
+            
             <section id="access-section" class="section">
                 <div class="section-title">Request Additional Access</div>
                 
@@ -504,8 +504,7 @@
         </main>
     </div>
 
-    <!-- Modals -->
-    <!-- Client Detail Modal -->
+   
     <div id="clientDetailModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -518,7 +517,7 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    
     <script src="./src/config.js"></script>
     <script src="./src/components/team-member.js"></script>
 </body>
