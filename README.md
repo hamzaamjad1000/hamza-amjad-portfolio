@@ -1,4 +1,4 @@
-#                            Hamza Amjad | Full-Stack Developer Portfolio
+# Hamza Amjad | Full-Stack Developer Portfolio
 
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JavaScript-orange?style=for-the-badge" />
@@ -192,20 +192,6 @@ python manage.py runserver
 
 ---
 
-# 🔐 Security & Privacy
-
-This repository contains only public project resources.
-
-The following private information is excluded:
-
-✅ Environment variables
-✅ Authentication credentials
-✅ API keys
-✅ Private configuration files
-✅ User-generated private data
-
-Sensitive files are managed locally and are not included in version control.
-
 ---
 
 # 🎯 Project Goals
@@ -237,8 +223,6 @@ Planned improvements:
 # 👨‍💻 Developer
 
 ## Hamza Amjad
-
-**Software Engineering Student | Full-Stack Web Developer**
 
 GitHub:
 
