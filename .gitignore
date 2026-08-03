@@ -1,20 +1,101 @@
-# Dependencies
+# ==============================
+# Environment Variables (PRIVATE)
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Node.js Dependencies
+# ==============================
 node_modules/
 frontend/node_modules/
 
-# Next.js
-.next/
-out/
-
-# Environment files
-.env
-.env.local
-
-# Build files
-dist/
-build/
-
-# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# ==============================
+# Next.js / Frontend Build Files
+# ==============================
+.next/
+out/
+dist/
+build/
+
+# ==============================
+# Python / Django
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Django Database Files (PRIVATE)
+db.sqlite3
+*.sqlite3
+*.db
+
+# Django Media (User Uploads)
+media/
+
+# ==============================
+# Python Cache & Tools
+# ==============================
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# ==============================
+# IDE / Editor Files
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# Operating System Files
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Logs
+# ==============================
+*.log
+logs/
+
+# ==============================
+# Profiling / Debug Files
+# ==============================
+*.cpuprofile
+
+# ==============================
+# Temporary Files
+# ==============================
+*.tmp
+*.temp
+*.bak
+
+# ==============================
+# Local Configuration
+# ==============================
+*.local
+
+# ==============================
+# Credentials / Secrets
+# ==============================
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# ==============================
+# Uploads / User Data
+# ==============================
+uploads/
