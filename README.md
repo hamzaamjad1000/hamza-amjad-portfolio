@@ -1,4 +1,4 @@
-# 🚀 Hamza Amjad | Full-Stack Developer Portfolio
+# Hamza Amjad | Full-Stack Developer Portfolio
 
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JavaScript-orange?style=for-the-badge" />
