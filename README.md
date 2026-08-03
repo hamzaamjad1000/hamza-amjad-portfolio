@@ -251,5 +251,3 @@ GitHub:
 Copyright © Hamza Amjad
 
 All rights reserved.
-
-This repository is provided for portfolio demonstration and educational viewing purposes.
