@@ -213,7 +213,7 @@ This project demonstrates practical experience in:
 
 ---
 
-# 📈 Future Improvements
+# Future Improvements
 
 Planned improvements:
 
