@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Member Dashboard - Hamza Amjad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" media="(max-width: 991.98px)">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/dashboard.css">
+    <link rel="stylesheet" href="./src/styles/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .clients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .client-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .client-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .client-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--text-color);
+            font-size: 18px;
+        }
+        
+        .client-info {
+            font-size: 14px;
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .client-info p {
+            margin: 5px 0;
+        }
+        
+        .client-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .status-active {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+        
+        .status-pending {
+            background: rgba(255, 152, 0, 0.2);
+            color: #ff9800;
+        }
+        
+        .client-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .view-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .request-btn {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .request-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--muted-color);
+        }
+        
+        .table-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .data-table th {
+            background: var(--hover-color);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+        
+        .data-table tr:hover {
+            background: var(--hover-color);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.8;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-color);
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--hover-color);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted-color);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .detail-item {
+            background: var(--hover-color);
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .detail-label {
+            font-size: 12px;
+            color: var(--muted-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 16px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+    </style>
+    <script>
+        // Force light theme on first visit (runs before CSS renders)
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.className = 'dark-mode';
+            document.body.className = 'dark-mode';
+        }
+    </script>
+</head>
+<body class="dashboard-body">
+    <!-- OFFICIAL BANNER (USA.GOV INSPIRED) -->
+    <section class="usa-banner" aria-label="Official website of Hamza Amjad">
+        <div class="usa-banner-header">
+            <div class="usa-banner-inner">
+                <span class="usa-banner-text">
+                    AN OFFICIAL PORTFOLIO WEBSITE OF HAMZA AMJAD // SYSTEMS_SECURE
+                </span>
+                <button class="usa-banner-button" id="usaBannerButton" aria-expanded="false" aria-controls="usaBannerContent">
+                    <span class="usa-banner-button-text">Here's how you know</span>
+                    <span class="usa-banner-button-icon">▾</span>
+                </button>
+            </div>
+        </div>
+        <div class="usa-banner-content" id="usaBannerContent" hidden>
+            <div class="usa-banner-grid">
+                <div class="usa-banner-item">
+                    <span class="usa-banner-icon">🔒</span>
+                    <div class="usa-banner-item-text">
+                        <strong>The connection is secure</strong>
+                        <p>This site uses a secure connection (HTTPS) to ensure your data is encrypted during transmission.</p>
+                    </div>
+                </div>
+                <div class="usa-banner-item">
+                    <span class="usa-banner-icon">✓</span>
+                    <div class="usa-banner-item-text">
+                        <strong>Verified Portfolio</strong>
+                        <p>Official portfolio of Hamza Amjad, Software Engineer & AI Enthusiast.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; display: flex; flex-direction: column;">
+                    <span class="logo-name">Hamza Amjad</span>
+                    <span class="logo-agency">// Software Engineer</span>
+                </a>
+            </div>
+            <div class="header-actions">
+                <div class="system-time" id="utcTime">UTC: --:--:--</div>
+                <div class="security-badge">
+                    <span class="security-dot pulse"></span>
+                    CLEARANCE: TEAM_MEMBER
+                </div>
+                <button class="mobile-menu-toggle" id="teamMenuToggle" aria-label="Toggle dashboard menu" aria-expanded="false">
+                    <div class="bar-container">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode"></button>
+                <a href="connect.html" class="hire-btn">Connect</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <div class="avatar-container">
+                    <img src="./public/images/profile.png" alt="Profile" id="sidebarAvatar" width="140" height="140" loading="lazy" decoding="async">
+                    <div class="avatar-overlay">
+                    </div>
+                </div>
+                <h3 id="sidebarName">Team Member</h3>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-section="overview">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Dashboard</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#" class="nav-item" data-section="clients">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">My Clients</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#" class="nav-item" data-section="access">
+                    <span class="nav-icon">■</span>
+                    <span class="nav-text">Request Access</span>
+                    <span class="nav-indicator"></span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="connection-info">
+                    <div class="info-item">
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <span class="logout-icon">■</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Overview Section -->
+            <section id="overview-section" class="section active">
+                <div class="section-title">Team Member Dashboard</div>
+                
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalClients">0</div>
+                        <div class="stat-label">Assigned Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="pendingRequests">0</div>
+                        <div class="stat-label">Pending Requests</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <h3>Welcome!</h3>
+                    <p>You can view and manage your assigned clients from the "My Clients" section. To request access to additional clients, use the "Request Access" section.</p>
+                </div>
+            </section>
+
+            <!-- My Clients Section -->
+            <section id="clients-section" class="section">
+                <div class="section-title">My Assigned Clients</div>
+                <div class="clients-list" id="clientsList">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--muted-color);">
+                        Loading your assigned clients...
+                    </div>
+                </div>
+            </section>
+
+            <!-- Request Access Section -->
+            <section id="access-section" class="section">
+                <div class="section-title">Request Additional Access</div>
+                
+                <div class="team-card">
+                    <h3>Available Clients</h3>
+                    <div class="table-container">
+                        <table class="data-table" id="availableClientsTable">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="availableClientsBody">
+                                <tr>
+                                    <td colspan="4" style="text-align: center; padding: 40px; color: var(--muted-color);">Loading available clients...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <h3>Your Pending Requests</h3>
+                    <div class="table-container">
+                        <table class="data-table" id="pendingRequestsTable">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Status</th>
+                                    <th>Requested On</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingRequestsBody">
+                                <tr>
+                                    <td colspan="3" style="text-align: center; padding: 40px; color: var(--muted-color);">No pending requests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Client Detail Modal -->
+    <div id="clientDetailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="clientDetailName">Client Details</h2>
+                <button class="close-btn" onclick="closeClientDetailModal()">&times;</button>
+            </div>
+            <div id="clientDetailContent">
+                <p>Loading client details...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./src/config.js"></script>
+    <script src="./src/components/team-member.js"></script>
+</body>
+</html>
+
+
+
+

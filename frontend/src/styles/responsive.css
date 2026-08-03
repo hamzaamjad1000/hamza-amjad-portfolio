@@ -1,0 +1,762 @@
+/* =========================================================
+   RESPONSIVE.CSS — FULL FIXED PRODUCTION VERSION
+   Mobile-first, no overflow, structured layout
+========================================================= */
+
+/* =========================
+   GLOBAL RESET (IMPORTANT)
+========================= */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+img, video, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================
+   MOBILE NAV BACKDROP
+========================= */
+.mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.mobile-nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================
+   DESKTOP NAV DEFAULT (SAFE)
+========================= */
+.nav {
+    display: flex;
+    gap: 1rem;
+}
+
+/* =========================
+   TABLET FIX (≤1024px)
+========================= */
+@media (max-width: 1024px) {
+
+    .hero-container,
+    .about-content,
+    .skills-grid,
+    .projects-grid,
+    .education-grid,
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 3.5rem 1.2rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .terminal-window {
+        display: none;
+    }
+}
+
+/* =========================
+   MOBILE FIX (≤768px)
+========================= */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 2000;
+        width: 100%;
+    }
+
+    /* ===== MOBILE NAV (FIXED) ===== */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        padding: 6rem 1rem 2rem;
+        gap: 1rem;
+
+        background: var(--bg-primary);
+        box-shadow: -10px 0 25px rgba(0,0,0,0.2);
+
+        z-index: 2001;
+        transition: right 0.35s ease;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem;
+        font-size: 1.1rem;
+        border-radius: 10px;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        z-index: 2100;
+    }
+
+    /* ===== LAYOUT FIX ===== */
+    .hero {
+        padding: 5.5rem 1rem 2rem;
+    }
+
+    .hero-container,
+    .about-content,
+    .skills-grid,
+    .projects-grid,
+    .education-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+
+    /* ===== CHATBOT ===== */
+    .chatbot-widget {
+        width: 92%;
+        right: 4%;
+        bottom: 1rem;
+        z-index: 2600;
+    }
+
+    .chatbot-toggle {
+        width: 52px;
+        height: 52px;
+    }
+
+    /* ===== DASHBOARD ===== */
+    .stats-grid,
+    .profile-grid,
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 92%;
+        padding: 1.2rem;
+    }
+}
+
+/* =========================
+   SMALL MOBILE (≤480px)
+========================= */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14.5px;
+    }
+
+    .nav {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .logo-name {
+        font-size: 1.1rem;
+    }
+
+    section {
+        padding: 2.5rem 1rem;
+    }
+
+    .hire-btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .sidebar {
+        width: 85%;
+    }
+}
+
+/* =========================
+   ENHANCED MOBILE EXPERIENCE
+========================= */
+@media (max-width: 991.98px) {
+
+    section[id] {
+        scroll-margin-top: calc(var(--header-height, 72px) + 1.25rem);
+    }
+
+    .header-container {
+        padding: 0 1rem;
+        gap: 0.75rem;
+    }
+
+    .header-actions {
+        gap: 0.5rem;
+    }
+
+    /* Put menu control in Connect button position on mobile */
+    .header-actions .hire-btn {
+        display: none;
+    }
+
+    .header-actions .mobile-menu-toggle {
+        order: 99;
+        margin-left: 0;
+    }
+
+    .security-badge,
+    .system-time {
+        display: none;
+    }
+
+    .logo-agency {
+        display: none;
+    }
+
+    .hire-btn {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.72rem;
+    }
+
+    .section-container {
+        padding: 0 1rem;
+    }
+
+    .hero {
+        min-height: auto;
+        align-items: flex-start;
+        overflow: visible;
+        padding: calc(var(--header-height, 72px) + 0.35rem) 1rem 2rem;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .dossier-body {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .profile-badge {
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        line-height: 1.15;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 0.9rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.1rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        clip-path: none;
+    }
+
+    .hero-social {
+        justify-content: flex-start !important;
+        margin-top: 1.1rem !important;
+    }
+
+    .section-title {
+        font-size: clamp(1.35rem, 6vw, 1.85rem);
+        margin-bottom: 1.4rem;
+        gap: 0.5rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem;
+        text-align: left !important;
+    }
+
+    .about-visual {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .about-text p {
+        font-size: 0.98rem;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+    }
+
+    .about-list {
+        margin: 1rem 0 0;
+    }
+
+    .about-list li {
+        padding: 0.75rem 0;
+        align-items: flex-start;
+    }
+
+    /* Education page mobile fixes */
+    .education-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .edu-card,
+    .edu-card.mini {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        padding: 1.1rem !important;
+    }
+
+    .edu-card h3 {
+        font-size: clamp(1.05rem, 5vw, 1.35rem) !important;
+        overflow-wrap: anywhere;
+    }
+
+    .institution,
+    .edu-description,
+    .edu-activities,
+    .edu-highlights li {
+        overflow-wrap: anywhere;
+    }
+
+    .edu-details {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .edu-header {
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-bottom: 1rem;
+    }
+
+    .edu-meta {
+        text-align: left;
+    }
+
+    .edu-highlights-grid,
+    .courses-grid,
+    .certifications-grid,
+    .volunteering-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.9rem !important;
+        width: 100%;
+    }
+
+    .volunteering-grid .edu-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        padding: 1.1rem !important;
+    }
+
+    .code-block {
+        width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .code-block pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .blog-card {
+        width: 100%;
+        min-width: 0;
+        padding: 1.25rem;
+    }
+
+    .blog-card h3,
+    .blog-card p,
+    .blog-card .link-btn {
+        overflow-wrap: anywhere;
+    }
+
+    .skill-card {
+        width: 100%;
+        min-width: 0;
+        padding: 1.2rem;
+    }
+
+    .skill-card h3,
+    .skill-card p {
+        overflow-wrap: anywhere;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem;
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-nav-list a:hover {
+        transform: none;
+    }
+
+    .connect-main {
+        padding: 4.75rem 0 2.5rem;
+    }
+
+    .auth-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem;
+    }
+
+    .auth-info-pane {
+        position: static;
+        top: auto;
+    }
+
+    .auth-card,
+    .auth-card.dossier-card {
+        padding: 1.25rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-content {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .dashboard-body {
+        overflow-x: hidden;
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .dashboard-sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s ease;
+        z-index: 2045;
+    }
+
+    .dashboard-sidebar-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%;
+        width: min(84vw, 320px);
+        max-width: 320px;
+        height: calc(100vh - var(--header-height));
+        z-index: 2050;
+        transition: left 0.28s ease;
+        box-shadow: 14px 0 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        padding: 1rem !important;
+    }
+
+    .section {
+        padding: 1rem !important;
+        border-radius: 14px;
+    }
+
+    .section-header-repo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .overview-grid,
+    .stats-grid,
+    .profile-grid,
+    .settings-grid,
+    .projects-grid,
+    .files-grid,
+    .file-preview-grid,
+    .clients-list {
+        grid-template-columns: 1fr !important;
+    }
+
+    .project-card-footer,
+    .progress-stats,
+    .setting-item,
+    .client-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cloud-input-group {
+        flex-direction: column;
+    }
+
+    .cloud-url-input,
+    .btn-upload {
+        width: 100%;
+        min-width: 0;
+    }
+
+    table,
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal {
+        padding: 0.75rem;
+    }
+
+    .modal-content {
+        width: 100%;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .article-content,
+    .article-body,
+    .technical-inset {
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .header {
+        padding: 0.7rem 0;
+    }
+
+    .header-container {
+        padding: 0 0.75rem;
+    }
+
+    .nav {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero {
+        padding: calc(var(--header-height, 72px) + 0.1rem) 0.75rem 1.5rem;
+    }
+
+    section {
+        padding: 2.5rem 0.75rem;
+    }
+
+    .footer-bottom {
+        padding: 1rem 0.5rem;
+    }
+
+    .copyright {
+        font-size: 0.68rem;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dossier-body {
+        padding: 1rem;
+    }
+
+    .profile-image-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-subtitle,
+    .hero-tagline {
+        font-size: 0.9rem;
+    }
+
+    .about-content,
+    .skills-grid,
+    .blog-grid {
+        gap: 0.9rem;
+    }
+
+    .about-text p {
+        font-size: 0.92rem;
+        line-height: 1.7;
+    }
+
+    .edu-card,
+    .edu-card.mini {
+        padding: 0.95rem !important;
+    }
+
+    .edu-highlights-grid,
+    .courses-grid,
+    .certifications-grid,
+    .volunteering-grid {
+        gap: 0.75rem !important;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .blog-card {
+        padding: 1rem;
+    }
+
+    .chatbot-widget {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        left: auto;
+        width: auto;
+    }
+
+    .chat-window {
+        width: min(100vw - 1.5rem, 420px);
+        max-width: none !important;
+        max-height: calc(100dvh - 100px);
+        height: min(560px, calc(100dvh - 100px));
+        right: 0;
+        bottom: 72px;
+    }
+
+    .chatbot-widget.chat-open .chat-window.active {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+        border-radius: 0;
+        border-width: 1px 0 0 0;
+        z-index: 3001;
+        bottom: 0;
+        right: 0;
+    }
+
+    .modal-content,
+    .popup-content {
+        border-radius: 10px;
+    }
+}
+
+/* =========================
+   FINAL SAFETY FIX
+========================= */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+* {
+    max-width: 100%;
+}
